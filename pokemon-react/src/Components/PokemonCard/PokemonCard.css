@@ -1,0 +1,30 @@
+.card {
+  width: 400px;
+  height: 400px;
+  background-color: #9edef9;
+  border-radius: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.card__name {
+  padding-bottom: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  font-size: 40px;
+  color: black;
+
+  z-index: 1;
+}
+.card__image {
+  z-index: 90;
+
+  border-radius: 16px;
+  width: 323px;
+  height: 326px;
+  object-fit: cover;
+}
