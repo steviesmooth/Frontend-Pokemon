@@ -1,3 +1,5 @@
+const baseUrl = "http://pokeapi.co/api/v2/pokemon";
+
 export const processServerResponse = (res) => {
   if (res.ok) {
     return res.json();
@@ -5,10 +7,8 @@ export const processServerResponse = (res) => {
   return Promise.reject(`Error: ${res.status}`);
 };
 
-export const searchPokemon = (name) => {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(
-    processServerResponse
-  );
+export const clickedPokemon = (pokemonName) => {
+  return fetch(`${baseUrl}/${pokemonName}`).then(processServerResponse);
 };
 
 export default function getIdPokemon(pokemon) {

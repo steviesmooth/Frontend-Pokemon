@@ -1,6 +1,6 @@
 import PokemonCard from "../PokemonCard/PokemonCard";
 import "./Main.css";
-const Main = ({ onSelectCard, pokemonList }) => {
+const Main = ({ pokemonList, onSelectCard }) => {
   return (
     <main className="main">
       <section className="main__section">
@@ -10,7 +10,7 @@ const Main = ({ onSelectCard, pokemonList }) => {
               <PokemonCard
                 key={pokemon.name}
                 pokemon={pokemon}
-                onSelectedCard={onSelectCard}
+                onSelectCard={onSelectCard}
               />
             );
           })}
