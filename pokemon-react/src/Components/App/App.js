@@ -1,14 +1,19 @@
 import "./App.css";
 import Header from "../Header/Header";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { clickedPokemon, pageTurner } from "../../utils/api";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import Preloader from "../Preloader/Preloader";
+//import NotFound from "../NotFoundPage/ErrorPage";
+
 import PokemonModal from "../PokemonModal/PokemonModal";
+import PokemonCaughtModal from "../PokemonCaughtModal/PokemonCaughtModal";
+import PokemonReleasedModal from "../PokemonReleasedModal/PokemonReleasedModal";
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const [activeModal, setActiveModal] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [pokemon, setPokemon] = useState({
@@ -18,18 +23,71 @@ function App() {
     attack: "",
     defense: "",
     type: "",
+    id: "",
   });
   const [search, setSearch] = useState("");
   const [offset, setOffset] = useState(0);
-  const limit = 20;
+  const limit = 151;
+
+  const release = activeModal === "release";
+  const catching = activeModal === "catching";
 
   const handleSearch = (data) => {
     return data.filter((item) => item.name.includes(search));
   };
 
+  const handleCaughtPokemon = (isCaught, setIsCaught, pokemon) => {
+    if (!isCaught) {
+      setIsCaught(true);
+    } else {
+      setIsCaught(false);
+    }
+    console.log(pokemon);
+  };
+
   const closeModal = () => {
     setActiveModal("");
   };
+
+  const handleCatchingPokemon = (pokemon) => {
+    const pokemonName = pokemon.name;
+    setPokemonName(pokemonName);
+    clickedPokemon(pokemonName).then((res) => {
+      setPokemon({
+        name: pokemonName,
+        img: res.sprites.front_default,
+        id: res.id,
+      });
+    });
+    setActiveModal("catching");
+  };
+
+  const handleReleasingPokemon = (pokemon) => {
+    const pokemonName = pokemon.name;
+    setPokemonName(pokemonName);
+    clickedPokemon(pokemonName).then((res) => {
+      setPokemon({
+        name: pokemonName,
+        img: res.sprites.front_default,
+        id: res.id,
+      });
+    });
+    setActiveModal("release");
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveModal("");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [catching]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveModal("");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [release]);
 
   useEffect(() => {
     function handleOverlay(evt) {
@@ -48,7 +106,6 @@ function App() {
     const pokemonName = data.name;
     setPokemonName(pokemonName);
     clickedPokemon(pokemonName).then((res) => {
-      console.log(res);
       setPokemon({
         name: pokemonName,
         img: res.sprites.front_default,
@@ -56,42 +113,59 @@ function App() {
         attack: res.stats[1].base_stat,
         defense: res.stats[2].base_stat,
         type: res.types[0].type.name,
+        id: res.id,
       });
     });
     setActiveModal("pokedex");
   };
 
   useEffect(() => {
-    pageTurner(offset, limit).then((json) => {
-      setPokemonList([...json["results"]]);
-    });
+    setIsLoading(true);
+    pageTurner(offset, limit)
+      .then((json) => {
+        setPokemonList([...json["results"]]);
+      })
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [offset]);
 
   return (
-    <Suspense fallback={<Preloader />}>
-      <div className="App">
-        <Header search={search} onChange={(e) => setSearch(e.target.value)} />
-        <Main
-          pokemonList={handleSearch(pokemonList)}
-          onSelectCard={handleSelectedPokemon}
-        />
-        <Footer
-          onNext={() => {
-            setPokemonList([]);
-            setOffset(offset + limit);
-          }}
-          onPrev={() => {
-            setPokemonList([]);
-            setOffset(offset - limit);
-          }}
-        />
-        <PokemonModal
-          selectedPokemon={pokemon}
-          name={"pokedex"}
-          isOpen={activeModal === "pokedex"}
-        />
-      </div>
-    </Suspense>
+    <div className="App">
+      <Header search={search} onChange={(e) => setSearch(e.target.value)} />
+      <Main
+        pokemonList={handleSearch(pokemonList)}
+        onSelectCard={handleSelectedPokemon}
+        isLoading={isLoading}
+        onCaughtPokemon={handleCaughtPokemon}
+        onCatchingPokemon={handleCatchingPokemon}
+        onReleasingPokemon={handleReleasingPokemon}
+      />
+      <Footer
+        onNext={() => {
+          setOffset(limit);
+        }}
+        onPrev={() => {
+          setOffset(limit);
+        }}
+      />
+      <PokemonModal
+        selectedPokemon={pokemon}
+        name={"pokedex"}
+        isOpen={activeModal === "pokedex"}
+      />
+      <PokemonCaughtModal
+        selectedPokemon={pokemon}
+        name={"catching"}
+        isOpen={activeModal === "catching"}
+      />
+      <PokemonReleasedModal
+        selectedPokemon={pokemon}
+        name={"release"}
+        isOpen={activeModal === "release"}
+      />
+    </div>
   );
 }
 

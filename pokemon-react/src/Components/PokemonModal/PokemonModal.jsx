@@ -7,7 +7,16 @@ const PokemonModal = ({ isOpen, selectedPokemon, name }) => {
     poison: "purple",
     grass: "green",
     water: "blue",
+    electric: "yellow",
+    psychic: "purple",
+    ground: "brown",
   };
+  const fontColors = {
+    normal: "black",
+    electric: "black",
+    bug: "black",
+  };
+  const defaultFontColor = "white";
   const defaultBackground = "white";
   return (
     <div
@@ -17,7 +26,10 @@ const PokemonModal = ({ isOpen, selectedPokemon, name }) => {
           : `modal_closed modal__type_${name}`
       }
     >
-      <div className="pokemon-modal__card">
+      <div
+        className="pokemon-modal__card"
+        style={{ color: fontColors[selectedPokemon.type] || defaultFontColor }}
+      >
         <div
           className="pokemon-modal__card_container"
           style={{

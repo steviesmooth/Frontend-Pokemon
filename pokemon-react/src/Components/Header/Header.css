@@ -2,10 +2,12 @@
   background-color: blue;
   padding: 0;
   margin: 0;
+  padding-bottom: 20px;
 }
 
 .header__logo-img {
   margin-top: 10px;
+  margin-bottom: 10px;
   height: 100px;
   width: 300px;
 }
