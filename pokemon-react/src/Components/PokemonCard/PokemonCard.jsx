@@ -13,12 +13,14 @@ const PokemonCard = ({
   const [isCaught, setIsCaught] = useState(false);
 
   useEffect(() => {
-    window.sessionStorage.setItem("Caught_Pokemon", JSON.stringify(isCaught));
-  }, [isCaught]);
+    const caught = window.localStorage.getItem("Caught_Pokemon");
+    const valueParse = JSON.parse(caught) ? JSON.parse(caught) : false;
+    setIsCaught(valueParse);
+  }, []);
 
   useEffect(() => {
-    setIsCaught(JSON.parse(window.sessionStorage.getItem("Caught_Pokemon")));
-  }, []);
+    window.localStorage.setItem("Caught_Pokemon", JSON.stringify(isCaught));
+  }, [isCaught]);
 
   return (
     <li className="card" key={pokemon.id}>
@@ -26,7 +28,7 @@ const PokemonCard = ({
         {!isCaught ? (
           <img
             onClick={() => {
-              onCatchingPokemon(pokemon, isCaught, setIsCaught);
+              onCatchingPokemon(pokemon);
               setIsCaught(true);
             }}
             className="card__poke-ball"
@@ -36,7 +38,7 @@ const PokemonCard = ({
         ) : (
           <img
             onClick={() => {
-              onReleasingPokemon(pokemon, isCaught, setIsCaught);
+              onReleasingPokemon(pokemon);
               setIsCaught(false);
             }}
             className="card__poke-ball"

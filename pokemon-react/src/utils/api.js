@@ -17,8 +17,12 @@ export default function getIdPokemon(pokemon) {
     .replace("/", "");
 }
 
-export const pageTurner = (offset, limit) => {
-  return fetch(
-    `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
-  ).then(processServerResponse);
+export const getPokemon = () => {
+  return fetch(`${baseUrl}?limit=151&offset=0`).then(processServerResponse);
 };
+
+// export const pageTurner = (offset, limit) => {
+//   return fetch(
+//     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
+//   ).then(processServerResponse);
+// };
