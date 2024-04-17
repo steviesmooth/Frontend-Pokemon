@@ -5,7 +5,7 @@ const SearchBar = ({ search, onChange }) => {
     <div className="searchBar">
       <input
         className="searchBar__input"
-        placeholder="Search Pokemon on page"
+        placeholder="Search Pokemon"
         onChange={onChange}
         value={search}
       />

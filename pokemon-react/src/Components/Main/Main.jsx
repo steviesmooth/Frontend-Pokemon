@@ -5,7 +5,6 @@ const Main = ({
   pokemonList,
   onSelectCard,
   isLoading,
-  onCaughtPokemon,
   onCatchingPokemon,
   onReleasingPokemon,
 }) => {
@@ -21,7 +20,6 @@ const Main = ({
                     key={pokemon.name}
                     pokemon={pokemon}
                     onSelectCard={onSelectCard}
-                    onCaughtPokemon={onCaughtPokemon}
                     onCatchingPokemon={onCatchingPokemon}
                     onReleasingPokemon={onReleasingPokemon}
                   />

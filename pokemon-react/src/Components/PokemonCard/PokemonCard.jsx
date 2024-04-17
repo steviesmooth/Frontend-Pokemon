@@ -2,28 +2,32 @@ import getIdPokemon from "../../utils/api";
 import caught from "../../images/3.png";
 import "./PokemonCard.css";
 import unCaught from "../../images/1.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const PokemonCard = ({
   pokemon,
   onSelectCard,
-  onCaughtPokemon,
   onCatchingPokemon,
   onReleasingPokemon,
 }) => {
   const [isCaught, setIsCaught] = useState(false);
 
-  const handleCatch = () => {
-    onCaughtPokemon(isCaught, setIsCaught, pokemon);
-  };
+  useEffect(() => {
+    window.sessionStorage.setItem("Caught_Pokemon", JSON.stringify(isCaught));
+  }, [isCaught]);
+
+  useEffect(() => {
+    setIsCaught(JSON.parse(window.sessionStorage.getItem("Caught_Pokemon")));
+  }, []);
+
   return (
     <li className="card" key={pokemon.id}>
       <div className="card__info">
         {!isCaught ? (
           <img
             onClick={() => {
-              handleCatch();
-              onCatchingPokemon(pokemon);
+              onCatchingPokemon(pokemon, isCaught, setIsCaught);
+              setIsCaught(true);
             }}
             className="card__poke-ball"
             src={unCaught}
@@ -32,8 +36,8 @@ const PokemonCard = ({
         ) : (
           <img
             onClick={() => {
-              handleCatch();
-              onReleasingPokemon(pokemon);
+              onReleasingPokemon(pokemon, isCaught, setIsCaught);
+              setIsCaught(false);
             }}
             className="card__poke-ball"
             src={caught}

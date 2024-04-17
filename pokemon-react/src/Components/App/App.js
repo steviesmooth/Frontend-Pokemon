@@ -36,15 +36,6 @@ function App() {
     return data.filter((item) => item.name.includes(search));
   };
 
-  const handleCaughtPokemon = (isCaught, setIsCaught, pokemon) => {
-    if (!isCaught) {
-      setIsCaught(true);
-    } else {
-      setIsCaught(false);
-    }
-    console.log(pokemon);
-  };
-
   const closeModal = () => {
     setActiveModal("");
   };
@@ -138,7 +129,6 @@ function App() {
         pokemonList={handleSearch(pokemonList)}
         onSelectCard={handleSelectedPokemon}
         isLoading={isLoading}
-        onCaughtPokemon={handleCaughtPokemon}
         onCatchingPokemon={handleCatchingPokemon}
         onReleasingPokemon={handleReleasingPokemon}
       />
