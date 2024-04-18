@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   padding-bottom: 20px;
+  position: relative;
 }
 
 .header__logo-img {
@@ -23,4 +24,29 @@
   margin-bottom: 20px;
   width: 100%;
   border-radius: 10px;
+}
+
+.header__user-name {
+  font-size: 30px;
+  color: yellow;
+}
+a {
+  align-items: center;
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.header__user {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  gap: 5px;
+  top: 30px;
+  right: 30px;
+}
+.header__user-img {
+  width: 22px;
+  height: 22px;
 }

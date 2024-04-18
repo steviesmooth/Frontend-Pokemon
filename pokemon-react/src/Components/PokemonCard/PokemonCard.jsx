@@ -2,7 +2,7 @@ import getIdPokemon from "../../utils/api";
 import caught from "../../images/3.png";
 import "./PokemonCard.css";
 import unCaught from "../../images/1.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const PokemonCard = ({
   pokemon,
@@ -12,18 +12,8 @@ const PokemonCard = ({
 }) => {
   const [isCaught, setIsCaught] = useState(false);
 
-  useEffect(() => {
-    const caught = window.localStorage.getItem("Caught_Pokemon");
-    const valueParse = JSON.parse(caught) ? JSON.parse(caught) : false;
-    setIsCaught(valueParse);
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem("Caught_Pokemon", JSON.stringify(isCaught));
-  }, [isCaught]);
-
   return (
-    <li className="card" key={pokemon.id}>
+    <li className="card" key={pokemon.name}>
       <div className="card__info">
         {!isCaught ? (
           <img

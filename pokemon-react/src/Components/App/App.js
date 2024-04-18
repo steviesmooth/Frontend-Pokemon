@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "../Header/Header";
 import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import { clickedPokemon, getPokemon } from "../../utils/api";
 import Main from "../Main/Main";
 // import Footer from "../Footer/Footer";
@@ -9,11 +10,15 @@ import Main from "../Main/Main";
 import PokemonModal from "../PokemonModal/PokemonModal";
 import PokemonCaughtModal from "../PokemonCaughtModal/PokemonCaughtModal";
 import PokemonReleasedModal from "../PokemonReleasedModal/PokemonReleasedModal";
+import Profile from "../Profile/Profile";
+import NotFound from "../NotFoundPage/ErrorPage";
+import EditUserModal from "../EditUserModal/EditUserModal";
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [caught, setCaught] = useState([]);
+  const [userName, setUserName] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [pokemon, setPokemon] = useState({
@@ -29,6 +34,15 @@ function App() {
 
   const release = activeModal === "release";
   const catching = activeModal === "catching";
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("Catching_Poke");
+    if (data !== null) setCaught(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("Catching_Poke", JSON.stringify(caught));
+  }, [caught]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -50,6 +64,11 @@ function App() {
     setActiveModal("");
   };
 
+  const handleUserUpdate = (userName) => {
+    setActiveModal("update");
+    setUserName(userName);
+  };
+
   const handleCatchingPokemon = (pokemon) => {
     const pokemonName = pokemon.name;
     setPokemonName(pokemonName);
@@ -59,6 +78,7 @@ function App() {
         img: res.sprites.front_default,
         id: res.id,
       });
+      setCaught([...caught, pokemon]);
     });
     setActiveModal("catching");
   };
@@ -72,6 +92,7 @@ function App() {
         img: res.sprites.front_default,
         id: res.id,
       });
+      setCaught([]);
     });
 
     setActiveModal("release");
@@ -116,14 +137,39 @@ function App() {
 
   return (
     <div className="App">
-      <Header search={search} onChange={(e) => setSearch(e.target.value)} />
-      <Main
-        pokemonList={handleSearch(pokemonList)}
-        onSelectCard={handleSelectedPokemon}
-        isLoading={isLoading}
-        onCatchingPokemon={handleCatchingPokemon}
-        onReleasingPokemon={handleReleasingPokemon}
+      <Header
+        search={search}
+        userName={userName}
+        onChange={(e) => setSearch(e.target.value)}
       />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <Main
+              pokemonList={handleSearch(pokemonList)}
+              onSelectCard={handleSelectedPokemon}
+              isLoading={isLoading}
+              onCatchingPokemon={handleCatchingPokemon}
+              onReleasingPokemon={handleReleasingPokemon}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              caught={caught}
+              setCaught={setCaught}
+              onEditModal={handleUserUpdate}
+              userName={userName}
+            />
+          }
+        />
+
+        <Route path={"*"} element={<NotFound />} />
+      </Routes>
       {/* <Footer
         onNext={() => {
           setOffset(offset + limit);
@@ -146,6 +192,12 @@ function App() {
         selectedPokemon={pokemon}
         name={"release"}
         isOpen={activeModal === "release"}
+      />
+      <EditUserModal
+        name={"update"}
+        isOpen={activeModal === "update"}
+        handleUserUpdate={handleUserUpdate}
+        onClose={closeModal}
       />
     </div>
   );

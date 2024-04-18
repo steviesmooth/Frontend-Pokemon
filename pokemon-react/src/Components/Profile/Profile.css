@@ -1,0 +1,6 @@
+.profile {
+  display: flex;
+
+  justify-content: space-between;
+  background-color: RGB(255, 203, 5);
+}
