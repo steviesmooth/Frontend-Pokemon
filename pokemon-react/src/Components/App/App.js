@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { clickedPokemon, getPokemon } from "../../utils/api";
 import Main from "../Main/Main";
-// import Footer from "../Footer/Footer";
-//import NotFound from "../NotFoundPage/ErrorPage";
 
+import Footer from "../Footer/Footer";
 import PokemonModal from "../PokemonModal/PokemonModal";
 import PokemonCaughtModal from "../PokemonCaughtModal/PokemonCaughtModal";
 import PokemonReleasedModal from "../PokemonReleasedModal/PokemonReleasedModal";
@@ -170,14 +169,7 @@ function App() {
 
         <Route path={"*"} element={<NotFound />} />
       </Routes>
-      {/* <Footer
-        onNext={() => {
-          setOffset(offset + limit);
-        }}
-        onPrev={() => {
-          setOffset(offset - limit);
-        }}
-      /> */}
+      <Footer />
       <PokemonModal
         selectedPokemon={pokemon}
         name={"pokedex"}

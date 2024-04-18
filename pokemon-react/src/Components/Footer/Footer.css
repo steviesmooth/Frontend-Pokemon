@@ -1,0 +1,6 @@
+.footer {
+  position: sticky;
+  margin-top: auto;
+  background-color: blue;
+  margin-bottom: 20px;
+}
