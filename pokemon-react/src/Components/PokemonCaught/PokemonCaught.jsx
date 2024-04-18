@@ -9,7 +9,7 @@ const PokemonCaught = ({ caught, setCaught }) => {
             <h2 className="pokemon__header-title">Your Pokemon</h2>
           </div>
           <ul className="pokemon__section">
-            <h3 className="pokemon__name">{pokemon.name}</h3>
+            <h3 className="pokemon__name">{pokemon?.name}</h3>
           </ul>
         </div>
       ))}
