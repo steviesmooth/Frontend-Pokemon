@@ -7,6 +7,8 @@ const Main = ({
   isLoading,
   onCatchingPokemon,
   onReleasingPokemon,
+  caught,
+  setCaught,
 }) => {
   return (
     <>
@@ -19,6 +21,8 @@ const Main = ({
                   <PokemonCard
                     key={pokemon.name}
                     pokemon={pokemon}
+                    caught={caught}
+                    setCaught={setCaught}
                     onSelectCard={onSelectCard}
                     onCatchingPokemon={onCatchingPokemon}
                     onReleasingPokemon={onReleasingPokemon}

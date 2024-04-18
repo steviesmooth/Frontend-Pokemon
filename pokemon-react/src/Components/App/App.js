@@ -35,8 +35,10 @@ function App() {
   const catching = activeModal === "catching";
 
   useEffect(() => {
-    const data = window.localStorage.getItem("Catching_Poke");
-    if (data !== null) setCaught(JSON.parse(data));
+    const pokemonData = JSON.parse(
+      localStorage.getItem("Catching_Poke") || "[]"
+    );
+    setCaught(pokemonData);
   }, []);
 
   useEffect(() => {
@@ -150,6 +152,8 @@ function App() {
               pokemonList={handleSearch(pokemonList)}
               onSelectCard={handleSelectedPokemon}
               isLoading={isLoading}
+              caught={caught}
+              setCaught={setCaught}
               onCatchingPokemon={handleCatchingPokemon}
               onReleasingPokemon={handleReleasingPokemon}
             />
