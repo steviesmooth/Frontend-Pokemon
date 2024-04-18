@@ -15,7 +15,7 @@ const Header = ({ search, onChange, userName }) => {
         <div className="header__user">
           <img src={pokeBall} className="header__user-img" alt="poke-ball" />
           <p className="header__user-name">
-            {userName.toString() || "stevennarak"}
+            {userName.toString() || "StevenNarak"}
           </p>
         </div>
       </Link>

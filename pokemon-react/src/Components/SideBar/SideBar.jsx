@@ -5,7 +5,7 @@ const SideBar = ({ onEditModal, handleLogout, userName }) => {
     <div className="sidebar">
       <div className="sidebar__user">
         <h2 className="siderbar__user-name" alt="user-name">
-          {userName.toString() || "stevennarak"}
+          {userName.toString() || "StevenNarak"}
         </h2>
       </div>
       <button className="sidebar__button" onClick={onEditModal}>
