@@ -1,10 +1,11 @@
 import "./Footer.css";
+import footerPic from "../../images/Footer.png";
 
 const Footer = () => {
   //   const year = new Date().getFullYear();
   return (
     <footer className="footer">
-      <div className="footer__container"></div>
+      <img src={footerPic} alt="pokemons" />
     </footer>
   );
 };

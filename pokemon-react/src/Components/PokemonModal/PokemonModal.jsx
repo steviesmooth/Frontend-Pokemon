@@ -10,11 +10,15 @@ const PokemonModal = ({ isOpen, selectedPokemon, name }) => {
     electric: "yellow",
     psychic: "purple",
     ground: "brown",
+    rock: "brown",
+    ice: "cyan",
+    dragon: "green",
   };
   const fontColors = {
     normal: "black",
     electric: "black",
     bug: "black",
+    ice: "black",
   };
   const defaultFontColor = "white";
   const defaultBackground = "white";
