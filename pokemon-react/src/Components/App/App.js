@@ -93,7 +93,7 @@ function App() {
         img: res.sprites.front_default,
         id: res.id,
       });
-      setCaught([]);
+      setCaught([...[], pokemon]);
     });
 
     setActiveModal("release");
@@ -167,6 +167,9 @@ function App() {
               setCaught={setCaught}
               onEditModal={handleUserUpdate}
               userName={userName}
+              onCatchingPokemon={handleCatchingPokemon}
+              onReleasingPokemon={handleReleasingPokemon}
+              onSelectCard={handleSelectedPokemon}
             />
           }
         />

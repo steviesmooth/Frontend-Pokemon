@@ -1,7 +1,13 @@
 import PokemonCard from "../PokemonCard/PokemonCard";
 import "./PokemonCaught.css";
 
-const PokemonCaught = ({ caught, setCaught }) => {
+const PokemonCaught = ({
+  caught,
+  setCaught,
+  onSelectCard,
+  onCatchingPokemon,
+  onReleasingPokemon,
+}) => {
   return (
     <>
       <div className="pokemon">
@@ -11,7 +17,12 @@ const PokemonCaught = ({ caught, setCaught }) => {
         <div className="pokemon__section">
           {" "}
           {caught.map((pokemon) => (
-            <PokemonCard pokemon={pokemon} />
+            <PokemonCard
+              pokemon={pokemon}
+              onSelectCard={() => onSelectCard(pokemon)}
+              onCatchingPokemon={onCatchingPokemon}
+              onReleasingPokemon={onReleasingPokemon}
+            />
           ))}
         </div>
       </div>

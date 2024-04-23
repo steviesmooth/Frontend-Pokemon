@@ -8,6 +8,9 @@ const Profile = ({
   caught,
   setCaught,
   userName,
+  onSelectCard,
+  onCatchingPokemon,
+  onReleasingPokemon,
 }) => {
   return (
     <div className="profile">
@@ -16,7 +19,13 @@ const Profile = ({
         onEditModal={onEditModal}
         userName={userName}
       />
-      <PokemonCaught caught={caught} setCaught={setCaught} />
+      <PokemonCaught
+        caught={caught}
+        setCaught={setCaught}
+        onSelectCard={onSelectCard}
+        onCatchingPokemon={onCatchingPokemon}
+        onReleasingPokemon={onReleasingPokemon}
+      />
     </div>
   );
 };

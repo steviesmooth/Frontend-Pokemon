@@ -1,5 +1,5 @@
 import getIdPokemon from "../../utils/api";
-import caught from "../../images/3.png";
+import caughtBall from "../../images/3.png";
 import "./PokemonCard.css";
 import unCaught from "../../images/1.png";
 import { useState } from "react";
@@ -32,7 +32,7 @@ const PokemonCard = ({
               setIsCaught(false);
             }}
             className="card__poke-ball"
-            src={caught}
+            src={caughtBall}
             alt="pokeball"
           />
         )}
