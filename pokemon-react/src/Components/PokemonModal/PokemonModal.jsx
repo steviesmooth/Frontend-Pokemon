@@ -1,33 +1,18 @@
 import "./PokemonModal.css";
+import {
+  backgrounds,
+  fontColors,
+  defaultBackground,
+  defaultFontColor,
+} from "../../utils/context";
 
 const PokemonModal = ({ isOpen, selectedPokemon, name }) => {
-  const backgrounds = {
-    fire: "red",
-    bug: "yellow",
-    poison: "purple",
-    grass: "green",
-    water: "blue",
-    electric: "yellow",
-    psychic: "purple",
-    ground: "brown",
-    rock: "brown",
-    ice: "cyan",
-    dragon: "green",
-  };
-  const fontColors = {
-    normal: "black",
-    electric: "black",
-    bug: "black",
-    ice: "black",
-  };
-  const defaultFontColor = "white";
-  const defaultBackground = "white";
   return (
     <div
       className={
         isOpen
           ? `modal modal__type_${name}`
-          : `modal_closed modal__type_${name}`
+          : `modal modal_closed modal__type_${name}`
       }
     >
       <div

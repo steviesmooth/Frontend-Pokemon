@@ -102,7 +102,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveModal("");
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [catching, release]);
 

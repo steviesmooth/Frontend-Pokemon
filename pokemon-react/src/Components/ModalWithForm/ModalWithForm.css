@@ -17,6 +17,7 @@
   visibility: hidden;
   opacity: 0;
 }
+
 .modal__close-button {
   position: absolute;
   top: 20px;

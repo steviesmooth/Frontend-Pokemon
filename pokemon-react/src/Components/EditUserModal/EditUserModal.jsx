@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./EditUserModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const EditUserModal = ({ isOpen, onClose, handleUserUpdate }) => {

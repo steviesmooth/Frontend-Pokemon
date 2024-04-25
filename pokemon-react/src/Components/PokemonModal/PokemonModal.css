@@ -1,4 +1,4 @@
-.modal {
+.modal .modal__type_pokedex {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -12,7 +12,7 @@
   width: 100vw;
   z-index: 3;
 }
-.modal_closed {
+.modal .modal_closed .modal__type_pokedex {
   visibility: hidden;
   opacity: 0;
 }
