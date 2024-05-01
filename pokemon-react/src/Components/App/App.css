@@ -2,6 +2,7 @@
   text-align: center;
   min-height: 100vh;
   display: flex;
+  font-family: Supreme-Bold, Supreme-Medium, Arial, Helvetica, sans-serif;
   flex-direction: column;
 }
 * {

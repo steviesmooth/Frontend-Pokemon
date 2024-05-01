@@ -1,0 +1,45 @@
+/**
+* @license
+*
+* Font Family: Supreme
+* Designed by: Jérémie Hornus, Ilya Naumoff
+* URL: https://www.fontshare.com/fonts/supreme
+* © 2024 Indian Type Foundry
+*
+* Supreme Thin 
+* Supreme ThinItalic 
+* Supreme Extralight 
+* Supreme ExtralightItalic 
+* Supreme Light 
+* Supreme LightItalic 
+* Supreme Regular 
+* Supreme Italic 
+* Supreme Medium 
+* Supreme MediumItalic 
+* Supreme Bold 
+* Supreme BoldItalic 
+* Supreme Extrabold 
+* Supreme ExtraboldItalic 
+* Supreme Variable (Variable font)
+* Supreme VariableItalic (Variable font)
+
+*
+*/
+
+@font-face {
+  font-family: "Supreme-Medium";
+  src: url("../fonts/Supreme-Medium.woff2") format("woff2"),
+    url("../fonts/Supreme-Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Supreme-Bold";
+  src: url("../fonts/Supreme-Bold.woff2") format("woff2"),
+    url("../fonts/Supreme-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}

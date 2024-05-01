@@ -54,8 +54,9 @@
 
 .card__name {
   padding-bottom: 20px;
-  font-weight: 700;
+  font-weight: 900;
   line-height: 20px;
+  font-family: Supreme-Bold, Arial, Helvetica, sans-serif;
   font-size: 40px;
   color: black;
 
@@ -68,4 +69,24 @@
   width: 323px;
   height: 326px;
   object-fit: cover;
+}
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+  .card {
+    width: 350px;
+    height: 350px;
+  }
+  .card__image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+  .card__name {
+    padding-top: 20px;
+    font-size: 25px;
+  }
+  .card__poke-ball {
+    height: 25px;
+    width: 25px;
+  }
 }

@@ -16,3 +16,10 @@
 
   padding: 20px;
 }
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+  .main__items {
+    display: flex;
+    column-gap: 50px;
+  }
+}

@@ -4,7 +4,7 @@ import {
   fontColors,
   defaultBackground,
   defaultFontColor,
-} from "../../utils/context";
+} from "../../utils/constants.js";
 
 const PokemonModal = ({ isOpen, selectedPokemon, name }) => {
   return (
