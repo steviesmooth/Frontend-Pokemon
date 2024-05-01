@@ -10,12 +10,16 @@ export const backgrounds = {
   rock: "brown",
   ice: "cyan",
   dragon: "green",
+  fairy: "pink",
+  fighting: "gray",
+  ghost: "black",
 };
 export const fontColors = {
   normal: "black",
   electric: "black",
   bug: "black",
   ice: "black",
+  fairy: "black",
 };
 export const defaultFontColor = "white";
 export const defaultBackground = "white";

@@ -8,6 +8,8 @@ const SearchBar = ({ search, onChange }) => {
         placeholder="Search Pokemon"
         onChange={onChange}
         value={search}
+        minLength={"1"}
+        maxLength={"10"}
       />
     </div>
   );
