@@ -34,7 +34,7 @@ function App() {
   const release = activeModal === "release";
   const catching = activeModal === "catching";
 
-  // Localstorage for catching for css purpose on profile page
+  // Localstorage catching pokemon for css purpose on profile page
 
   useEffect(() => {
     const pokemonData = JSON.parse(
