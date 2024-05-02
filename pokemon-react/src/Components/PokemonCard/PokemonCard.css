@@ -94,7 +94,7 @@
   object-fit: cover;
 }
 
-@media screen and (min-width: 900px) and (max-width: 1440px) {
+@media screen and (min-width: 1025px) and (max-width: 1399px) {
   .card {
     width: 350px;
     height: 350px;
@@ -102,6 +102,48 @@
   .card__image {
     width: 300px;
     height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .card__name {
+    padding-top: 20px;
+    font-size: 25px;
+  }
+  .card__poke-ball {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1024px) {
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+  .card__image {
+    width: 250px;
+    height: 250px;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .card__name {
+    padding-top: 20px;
+    font-size: 25px;
+  }
+  .card__poke-ball {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media screen and (min-width: 425px) and (max-width: 899px) {
+  .card {
+    width: 300px;
+    height: 300px;
+  }
+  .card__image {
+    width: 250px;
+    height: 250px;
     -o-object-fit: cover;
     object-fit: cover;
   }

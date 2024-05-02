@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   min-height: 100vh;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,4 +13,9 @@
 }
 * {
   margin: 0%;
+}
+
+html {
+  min-width: fit-content;
+  max-width: auto;
 }
