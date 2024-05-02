@@ -1,11 +1,4 @@
-const baseUrl = "http://pokeapi.co/api/v2/pokemon";
-
-export const processServerResponse = (res) => {
-  if (res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Error: ${res.status}`);
-};
+import { baseUrl, processServerResponse } from "./constants";
 
 export const clickedPokemon = (pokemonName) => {
   return fetch(`${baseUrl}/${pokemonName}`).then(processServerResponse);

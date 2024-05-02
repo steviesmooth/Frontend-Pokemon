@@ -1,3 +1,5 @@
+// Changing Card Color Based on type
+
 export const backgrounds = {
   fire: "red",
   bug: "yellow",
@@ -23,3 +25,14 @@ export const fontColors = {
 };
 export const defaultFontColor = "white";
 export const defaultBackground = "white";
+
+// API
+
+export const baseUrl = "http://pokeapi.co/api/v2/pokemon";
+
+export const processServerResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
