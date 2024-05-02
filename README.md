@@ -1,5 +1,5 @@
-
 # Pokemon React
+# About the Project
 
 This is a front-end react pokemon project. This project will allow the user to search through all the basic types of pokemon. It also allows the user to click on any desired pokemon for more detailed stats, that would appear on a pokemon card. For the back-end portion for this project, it will allow the user to signup/login to the app. Being logged in will allow the user to catch any pokemon, that will go directly to their profile page. It would also allow them to release any caught pokemon as well. 
 
