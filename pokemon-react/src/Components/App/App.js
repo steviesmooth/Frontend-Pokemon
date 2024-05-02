@@ -34,6 +34,8 @@ function App() {
   const release = activeModal === "release";
   const catching = activeModal === "catching";
 
+  // Localstorage for catching for css purpose on profile page
+
   useEffect(() => {
     const pokemonData = JSON.parse(
       localStorage.getItem("Catching_Poke") || "[]"
@@ -44,6 +46,8 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem("Catching_Poke", JSON.stringify(caught));
   }, [caught]);
+
+  // Getting Pokemon
 
   useEffect(() => {
     setIsLoading(true);
@@ -57,17 +61,40 @@ function App() {
       });
   }, []);
 
-  const handleSearch = (data) => {
-    return data.filter((item) => item.name.includes(search));
-  };
+  // Closing Popups
 
   const closeModal = () => {
     setActiveModal("");
   };
 
+  useEffect(() => {
+    function handleOverlay(evt) {
+      if (
+        evt.target.classList.contains("modal") ||
+        evt.target.classList.contains("pokedex")
+      ) {
+        closeModal();
+      }
+    }
+    document.addEventListener("click", handleOverlay);
+    return () => document.removeEventListener("click", handleOverlay);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveModal("");
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [catching, release]);
+
+  // Handlers
+
   const handleUserUpdate = (userName) => {
     setActiveModal("update");
     setUserName(userName);
+  };
+  const handleSearch = (data) => {
+    return data.filter((item) => item.name.includes(search));
   };
 
   const handleCatchingPokemon = (pokemon) => {
@@ -101,26 +128,6 @@ function App() {
       })
       .catch((err) => console.error(err));
   };
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setActiveModal("");
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, [catching, release]);
-
-  useEffect(() => {
-    function handleOverlay(evt) {
-      if (
-        evt.target.classList.contains("modal") ||
-        evt.target.classList.contains("pokedex")
-      ) {
-        closeModal();
-      }
-    }
-    document.addEventListener("click", handleOverlay);
-    return () => document.removeEventListener("click", handleOverlay);
-  }, []);
 
   const handleSelectedPokemon = (data) => {
     const pokemonName = data.name;
