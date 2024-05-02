@@ -73,30 +73,33 @@ function App() {
   const handleCatchingPokemon = (pokemon) => {
     const pokemonName = pokemon.name;
     setPokemonName(pokemonName);
-    clickedPokemon(pokemonName).then((res) => {
-      setPokemon({
-        name: pokemonName,
-        img: res.sprites.front_default,
-        id: res.id,
-      });
-      setCaught([...caught, pokemon]);
-    });
-    setActiveModal("catching");
+    clickedPokemon(pokemonName)
+      .then((res) => {
+        setPokemon({
+          name: pokemonName,
+          img: res.sprites.front_default,
+          id: res.id,
+        });
+        setCaught([...caught, pokemon]);
+        setActiveModal("catching");
+      })
+      .catch((err) => console.error(err));
   };
 
   const handleReleasingPokemon = (pokemon) => {
     const pokemonName = pokemon.name;
     setPokemonName(pokemonName);
-    clickedPokemon(pokemonName).then((res) => {
-      setPokemon({
-        name: pokemonName,
-        img: res.sprites.front_default,
-        id: res.id,
-      });
-      setCaught([...[], pokemon]);
-    });
-
-    setActiveModal("release");
+    clickedPokemon(pokemonName)
+      .then((res) => {
+        setPokemon({
+          name: pokemonName,
+          img: res.sprites.front_default,
+          id: res.id,
+        });
+        setCaught([...[], pokemon]);
+        setActiveModal("release");
+      })
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -122,18 +125,20 @@ function App() {
   const handleSelectedPokemon = (data) => {
     const pokemonName = data.name;
     setPokemonName(pokemonName);
-    clickedPokemon(pokemonName).then((res) => {
-      setPokemon({
-        name: pokemonName,
-        img: res.sprites.front_default,
-        hp: res.stats[0].base_stat,
-        attack: res.stats[1].base_stat,
-        defense: res.stats[2].base_stat,
-        type: res.types[0].type.name,
-        id: res.id,
-      });
-    });
-    setActiveModal("pokedex");
+    clickedPokemon(pokemonName)
+      .then((res) => {
+        setPokemon({
+          name: pokemonName,
+          img: res.sprites.front_default,
+          hp: res.stats[0].base_stat,
+          attack: res.stats[1].base_stat,
+          defense: res.stats[2].base_stat,
+          type: res.types[0].type.name,
+          id: res.id,
+        });
+        setActiveModal("pokedex");
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
