@@ -5,8 +5,14 @@
   right: 0;
   left: 0;
   bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
@@ -45,8 +51,15 @@
 }
 .modal__form {
   margin: 0px 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .modal__form-title {
@@ -67,11 +80,15 @@
 .modal__form-btn_text {
   color: rgba(0, 0, 0, 0.5);
   font-size: 16px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   position: relative;
   top: 15px;
   left: 140px;
   margin-bottom: -44px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .modal__form-btn_text:hover {

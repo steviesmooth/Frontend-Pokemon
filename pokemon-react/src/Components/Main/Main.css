@@ -7,11 +7,21 @@
   background-color: RGB(255, 203, 5);
 }
 .main__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-column-gap: 100px;
+  -moz-column-gap: 100px;
   column-gap: 100px;
   row-gap: 20px;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
   padding: 20px;
@@ -19,7 +29,11 @@
 
 @media screen and (min-width: 900px) and (max-width: 1440px) {
   .main__items {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-column-gap: 50px;
+    -moz-column-gap: 50px;
     column-gap: 50px;
   }
 }

@@ -1,4 +1,6 @@
 .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding-top: 20px;
   padding-left: 10px;
