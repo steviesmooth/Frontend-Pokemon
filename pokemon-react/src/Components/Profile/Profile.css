@@ -2,6 +2,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 28vh;
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
