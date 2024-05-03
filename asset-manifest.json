@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Frontend-Pokemon/static/css/main.fd3fb29c.css",
-    "main.js": "/Frontend-Pokemon/static/js/main.4a17a74c.js",
+    "main.js": "/Frontend-Pokemon/static/js/main.7f119caa.js",
     "static/js/453.e8b433a2.chunk.js": "/Frontend-Pokemon/static/js/453.e8b433a2.chunk.js",
     "static/media/Footer.png": "/Frontend-Pokemon/static/media/Footer.400e744728531c67c75a.png",
     "static/media/pokemon.png": "/Frontend-Pokemon/static/media/pokemon.5133745990f129c39a2d.png",
@@ -10,11 +10,11 @@
     "static/media/close.svg": "/Frontend-Pokemon/static/media/close.dcddfede664628516ef6.svg",
     "index.html": "/Frontend-Pokemon/index.html",
     "main.fd3fb29c.css.map": "/Frontend-Pokemon/static/css/main.fd3fb29c.css.map",
-    "main.4a17a74c.js.map": "/Frontend-Pokemon/static/js/main.4a17a74c.js.map",
+    "main.7f119caa.js.map": "/Frontend-Pokemon/static/js/main.7f119caa.js.map",
     "453.e8b433a2.chunk.js.map": "/Frontend-Pokemon/static/js/453.e8b433a2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fd3fb29c.css",
-    "static/js/main.4a17a74c.js"
+    "static/js/main.7f119caa.js"
   ]
 }
