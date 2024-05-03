@@ -28,7 +28,7 @@ export const defaultBackground = "white";
 
 // API
 
-export const baseUrl = "http://pokeapi.co/api/v2/pokemon";
+export const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
 export const processServerResponse = (res) => {
   if (res.ok) {
