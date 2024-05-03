@@ -124,6 +124,7 @@ function App() {
           id: res.id,
         });
         setCaught([...[], pokemon]);
+        localStorage.removeItem("Catching_poke");
         setActiveModal("release");
       })
       .catch((err) => console.error(err));
