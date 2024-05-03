@@ -1,6 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import "./Header.css";
-import headerImg from "../../images/pokemon.svg";
+import headerImg from "../../images/pokemon.png";
 import pokeBall from "../../images/3.png";
 import { Link } from "react-router-dom";
 
