@@ -10,6 +10,8 @@ This is a front-end react pokemon project. This project will allow the user to s
 ![Screenshot (141)](https://github.com/steviesmooth/Frontend-Pokemon/assets/126042891/e731dbf8-0567-481f-8b7e-2efd94b4795b)
 ![Screenshot (142)](https://github.com/steviesmooth/Frontend-Pokemon/assets/126042891/21bcdfed-9c2c-4c16-a5af-96bd3f665754)
 
+## Deployment Link
+https://steviesmooth.github.io/Frontend-Pokemon/
 
 
 ## 🔗 Links
