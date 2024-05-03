@@ -158,7 +158,7 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/Frontend-Pokemon"
           element={
             <Main
               pokemonList={handleSearch(pokemonList)}
@@ -172,7 +172,7 @@ function App() {
           }
         />
         <Route
-          path="/profile"
+          path="/Frontend-Pokemon/profile"
           element={
             <Profile
               caught={caught}
