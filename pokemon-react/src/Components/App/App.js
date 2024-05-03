@@ -36,13 +36,6 @@ function App() {
 
   // Localstorage for catching for css purpose on profile page
 
-  // useEffect(() => {
-  //   const pokemonData = JSON.parse(
-  //     localStorage.getItem("Catching_Poke") || "[]"
-  //   );
-  //   setCaught(pokemonData);
-  // }, []);
-
   useEffect(() => {
     window.localStorage.setItem("Catching_Poke", JSON.stringify(caught));
   }, [caught]);
